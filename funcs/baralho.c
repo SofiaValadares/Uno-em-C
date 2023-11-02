@@ -51,6 +51,7 @@ void addBaralho(Baralho **head, int tipo, int simbulo) {
 
 Baralho* comprarCarta(Baralho **head) {
     Baralho *n = (*head)->prox;
+    Baralho *card = (Baralho*)malloc(sizeof(Baralho));
 
     srand(time(0)); // mover para a main
     int nunCard = rand() % countBaralho(n);
@@ -67,15 +68,22 @@ Baralho* comprarCarta(Baralho **head) {
         exit(1);
     }
 
+    card->tipo = n->tipo;
+    card->simbulo = n->simbulo;
+    card->prox = NULL;
+
     if (n->prox == NULL) {
         anterior->prox = NULL;
+        free(n);
     } else if (anterior == NULL) {
         (*head)->prox = n->prox;
+        free(n);
     } else {
         anterior->prox = n->prox;
+        free(n);
     }
 
-    return n;
+    return card;
 }
 
 int countBaralho(Baralho *head) {
@@ -87,4 +95,18 @@ int countBaralho(Baralho *head) {
     }
 
     return count;
+}
+
+Baralho* criarMao(Baralho** head) {
+    Baralho *mao = NULL;
+
+    for (int i = 0; i < 7; i++) {
+        if (mao == NULL) {
+            mao = comprarCarta(head);
+        } else {
+            Baralho *novaCarta = comprarCarta(head);
+            novaCarta->prox = mao;
+            mao = novaCarta;
+        }
+    }
 }

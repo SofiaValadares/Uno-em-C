@@ -5,6 +5,7 @@ Baralho* criarDeck(char* nome_arquivo);
 void addBaralho(Baralho **pilha, int tipo, int simbulo);
 Baralho* comprarCarta(Baralho **head);
 int countBaralho(Baralho *head);
+Baralho* criarMao(Baralho** head);
 
 
 #endif //__BARALHO_LIB__
