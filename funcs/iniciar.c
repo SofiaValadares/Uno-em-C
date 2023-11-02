@@ -6,6 +6,7 @@
 #include "baralho.h"
 #include "cartas.h"
 #include "jogador.h"
+#include "ui.h"
 
 void criarArqSentido() {
     FILE *f;
@@ -23,12 +24,13 @@ void criarArqSentido() {
 }
 
 void iniciar(Baralho **deck, Jogador **players) {
+    textoUno();
     criarArqSentido();
 
     *deck = criarDeck(ARQUIVO_BARALHO);
-    *players = listaJogadores(deck);
+    //*players = listaJogadores(deck);
     
-    imprimirPlayers(*players);
+    //imprimirPlayers(*players);
     // criar jogadores aqui eba
 
     primeiraCarta(deck);
