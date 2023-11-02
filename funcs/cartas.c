@@ -4,6 +4,7 @@
 
 #include "cartas.h"
 #include "structs.h"
+#include "iniciar.h"
 
 char* nomeCarta(Baralho *card) {
     char *strCard = (char*)malloc(31 * sizeof(char));
@@ -74,4 +75,25 @@ char* nomeCarta(Baralho *card) {
     }
 
     return strCard;
+}
+
+void inverter() {
+    int sent = lerSentido();
+
+    FILE *f;
+
+    f = fopen(ARQUIVO_SENTIDO, "w+");
+
+    if (f == NULL) {
+        printf("Erro: ao abrir arquivo %s.....\n", ARQUIVO_SENTIDO);
+        exit(1);
+    }
+
+    if (sent) {
+        fprintf(f, "0");
+    } else {
+        fprintf(f, "1");
+    }
+
+    fclose(f);
 }

@@ -9,6 +9,6 @@ Baralho* comprarCarta(Baralho **head);
 int countBaralho(Baralho *head);
 Baralho* criarMao(Baralho** head);
 void primeiraCarta(Baralho **head);
-
+void addMao(Baralho **head, Baralho *card);
 
 #endif //__BARALHO_LIB__

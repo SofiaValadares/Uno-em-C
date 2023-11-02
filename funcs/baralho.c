@@ -119,3 +119,12 @@ void primeiraCarta(Baralho **head) {
     primeiroCard->prox = *head;
     *head = primeiroCard;
 }
+
+void addMao(Baralho **head, Baralho *card) {
+    if (*head == NULL) {
+        *head = card;
+    } else {
+        card->prox = *head;
+        *head = card;
+    }
+}

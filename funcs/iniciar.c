@@ -30,10 +30,25 @@ void iniciar(Baralho **deck) {
     // criar jogadores aqui eba
 
     primeiraCarta(deck);
+}
 
-    
 
+int lerSentido() {
+    FILE *f;
 
+    f = fopen(ARQUIVO_SENTIDO, "r");
+
+    if (f == NULL) {
+        printf("Erro: ao abrir arquivo %s.....\n", ARQUIVO_SENTIDO);
+        exit(1);
+    }
+
+    int sent;
+    fscanf(f, "%d", &sent);
+
+    fclose(f);
+
+    return sent;
 }
 
 

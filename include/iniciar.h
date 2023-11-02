@@ -5,7 +5,7 @@
 
 void criarArqSentido();
 void iniciar(Baralho **deck);
-
+int lerSentido();
 
 
 
