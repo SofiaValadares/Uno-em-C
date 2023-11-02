@@ -110,3 +110,10 @@ Baralho* criarMao(Baralho** head) {
         }
     }
 }
+
+void primeiraCarta(Baralho **head) {
+    Baralho *primeiroCard = comprarCarta(head);
+
+    primeiroCard->prox = *head;
+    *head = primeiroCard;
+}
