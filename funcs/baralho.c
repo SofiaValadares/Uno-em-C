@@ -109,6 +109,8 @@ Baralho* criarMao(Baralho** head) {
             mao = novaCarta;
         }
     }
+
+    return mao;
 }
 
 void primeiraCarta(Baralho **head) {

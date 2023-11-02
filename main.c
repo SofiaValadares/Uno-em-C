@@ -1,7 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#include "structs.h"
+#include "baralho.h"
+#include "cartas.h"
+#include "jogador.h"
+#include "iniciar.h"
 
 int main(void){
-    printf("Testando se o c ta funcionando normal aq no pc pq antes tinha tido um bug. Ignora essa main pq dps vou apagar.");
-
+    Baralho *deck = NULL;
+    Jogador *play = NULL;
+    
+    iniciar(&deck);
     return 0;
 }

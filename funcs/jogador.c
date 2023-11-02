@@ -11,7 +11,7 @@ Jogador* criarJogador(Baralho **head){
 
     char nomeJogador[51];
     printf("Digite seu nome: ");
-    scanf("%s", &nomeJogador);
+    scanf("%s", nomeJogador);
 
     strcpy(novoJogador->nome, nomeJogador);
     novoJogador->qnt = 7;

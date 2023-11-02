@@ -1,6 +1,8 @@
 #ifndef __BARALHO_LIB__
 #define __BARALHO_LIB__
 
+#include "structs.h"
+
 Baralho* criarDeck(char* nome_arquivo);
 void addBaralho(Baralho **pilha, int tipo, int simbulo);
 Baralho* comprarCarta(Baralho **head);
