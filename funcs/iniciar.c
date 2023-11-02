@@ -22,11 +22,13 @@ void criarArqSentido() {
     fclose(f);
 }
 
-void iniciar(Baralho **deck) {
+void iniciar(Baralho **deck, Jogador **players) {
     criarArqSentido();
 
     *deck = criarDeck(ARQUIVO_BARALHO);
+    *players = listaJogadores(deck);
     
+    imprimirPlayers(*players);
     // criar jogadores aqui eba
 
     primeiraCarta(deck);
@@ -59,4 +61,15 @@ void imprimirCartas(Baralho *deck) {
         deck = deck->prox;
     }
     
+}
+
+void imprimirPlayers(Jogador *head) {
+    Jogador *tail = head->ant;
+
+    while (head != tail->prox) {
+        printf("Nome: %s\n", head->nome);
+        printf("Qnt: %d\n", head->qnt);
+        imprimirCartas(head->mao);
+        printf("\n");
+    }
 }

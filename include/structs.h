@@ -15,8 +15,8 @@ typedef struct jogador{
     char nome[51];
     int qnt; 
     Baralho *mao;
-    struct usuarios *prox;
-    struct usuarios *ant;
+    struct jogador *prox;
+    struct jogador *ant;
 } Jogador;
 
 

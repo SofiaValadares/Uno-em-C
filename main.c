@@ -9,8 +9,8 @@
 
 int main(void){
     Baralho *deck = NULL;
-    Jogador *play = NULL;
+    Jogador *players = NULL;
     
-    iniciar(&deck);
+    iniciar(&deck, &players);
     return 0;
 }

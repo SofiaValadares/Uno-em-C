@@ -4,10 +4,11 @@
 #include "structs.h"
 
 void criarArqSentido();
-void iniciar(Baralho **deck);
+void iniciar(Baralho **deck, Jogador **players) ;
 int lerSentido();
 
 
 
 void imprimirCartas(Baralho *deck);
+void imprimirPlayers(Jogador *head);
 #endif //__INICIO__LIB__
