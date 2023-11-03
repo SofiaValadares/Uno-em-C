@@ -14,6 +14,51 @@ void textoUno() {
     printf("\n\n\n\n");
 }
 
+void listaJogadoresImprimir(Jogador *head) {
+    Jogador *tail = head->ant;
+
+    do {
+        if (head->qnt == 1) {
+            printf(RED);
+            printf("%s - UNO  ", head->nome);
+            printf(RESET);
+            return;
+        }
+
+        printf("%s - %d  ", head->nome, head->qnt);
+        head = head->prox;
+
+    } while (head != tail->prox);
+
+    printf("\n");
+}
+
+void imprimirCartas(Baralho *deck) {
+    while (deck != NULL){
+        printf("%s\n", nomeCarta(deck));
+        deck = deck->prox;
+    }
+}
+
+void turnoInterface(Jogador *player, Baralho *deck) {
+    limparTerminal();
+
+    textoBold("JOCADORES:\n");
+    listaJogadoresImprimir(player);
+    printf("\n\n");
+
+    textoBold("Carta no centro: ");
+    printf("%s\n\n", nomeCarta(deck));
+
+    limparBuff();
+
+    printf("Vez do jogador %s, digite enter para visualizar sua mão.....", player->nome);
+    while (getchar() != '\n');
+
+    printf("\n");
+    imprimirCartas(player->mao);
+}
+
 void textoBold(const char *texto) {
     printf(BOLD);
     printf("%s", texto);
@@ -65,4 +110,9 @@ void limparTerminal() {
         // Sistema macOS ou Linux
         system("clear");
     #endif
+}
+
+void limparBuff() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 }

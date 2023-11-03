@@ -13,5 +13,7 @@ int main(void){
     Jogador *players = NULL;
     
     iniciar(&deck, &players);
+
+    //turnoInterface(players, deck);
     return 0;
 }

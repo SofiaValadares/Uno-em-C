@@ -9,6 +9,7 @@ int lerSentido();
 
 
 
-void imprimirCartas(Baralho *deck);
+
 void imprimirPlayers(Jogador *head);
+void imprimirJogador(Jogador *head);
 #endif //__INICIO__LIB__

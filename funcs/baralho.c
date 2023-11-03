@@ -149,13 +149,20 @@ void primeiraCarta(Baralho **head) {
 }
 
 void addMao(Jogador **player, Baralho **deck) {
-    Baralho *mao = (*player)->mao;
-    Baralho *card = comprarCarta(deck);
-
-    if (mao == NULL) {
-        mao = card;
-    } else {
-        card->prox = mao;
-        mao = card;
+    if (*player == NULL) {
+        printf("\033[31mErro: ao acessar o jogador.....\n\033[0m");
+        exit(1);
     }
+
+    (*player)->qnt++;
+
+    Baralho *novoCard = comprarCarta(deck);
+
+    if (novoCard == NULL) {
+        printf("\033[31mErro: ao comprar carta.....\n\033[0m");
+        exit(1);
+    }
+
+    novoCard->prox = (*player)->mao;
+    (*player)->mao = novoCard;
 }

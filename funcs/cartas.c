@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "cartas.h"
+#include "baralho.h"
 #include "structs.h"
 #include "iniciar.h"
 #include "ui.h"
@@ -78,6 +79,21 @@ char* nomeCarta(Baralho *card) {
     return strCard;
 }
 
+int veficarCarta(Baralho *card, Baralho *deck) {
+    return card->tipo == 0 || card->tipo == deck->tipo || card->simbulo == deck ->simbulo;
+}
+
+int verifcarMao(Baralho *mao, Baralho *deck) {
+    while (mao != NULL) {
+        if (veficarCarta(mao, deck)) {
+            return 1;
+        }
+        mao = mao->prox;
+    }
+
+    return 0;
+}
+
 void inverter() {
     int sent = lerSentido();
 
@@ -86,7 +102,7 @@ void inverter() {
     f = fopen(ARQUIVO_SENTIDO, "w+");
 
     if (f == NULL) {
-        printf("Erro: ao abrir arquivo %s.....\n", ARQUIVO_SENTIDO);
+        printf("\033[31mErro: ao abrir arquivo %s.....\n\033[0m", ARQUIVO_SENTIDO);
         exit(1);
     }
 

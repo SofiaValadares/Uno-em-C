@@ -14,7 +14,7 @@ void criarArqSentido() {
     f = fopen(ARQUIVO_SENTIDO, "w+");
 
     if (f == NULL) {
-        printf("Erro: ao criar arquivo %s.....\n", ARQUIVO_SENTIDO);
+        printf("033[31mErro: ao criar arquivo %s.....\n\033[0m", ARQUIVO_SENTIDO);
         exit(0);
     }
 
@@ -29,8 +29,7 @@ void iniciar(Baralho **deck, Jogador **players) {
 
     *deck = criarDeck(ARQUIVO_BARALHO);
     //*players = listaJogadores(deck);
-    // criar jogadores aqui eba
-
+    
     primeiraCarta(deck);
 }
 
@@ -41,7 +40,7 @@ int lerSentido() {
     f = fopen(ARQUIVO_SENTIDO, "r");
 
     if (f == NULL) {
-        printf("Erro: ao abrir arquivo %s.....\n", ARQUIVO_SENTIDO);
+        printf("033[31mErro: ao abrir arquivo %s.....\n\033[0m", ARQUIVO_SENTIDO);
         exit(1);
     }
 
@@ -55,13 +54,6 @@ int lerSentido() {
 
 
 // Testes eba
-void imprimirCartas(Baralho *deck) {
-    while (deck != NULL){
-        printf("%s\n", nomeCarta(deck));
-        deck = deck->prox;
-    }
-    
-}
 
 void imprimirPlayers(Jogador *head) {
     Jogador *tail = head->ant;
@@ -73,4 +65,11 @@ void imprimirPlayers(Jogador *head) {
         printf("\n");
         head = head->prox;
     } while (head != tail->prox);
+}
+
+void imprimirJogador(Jogador *head) {
+    printf("Nome: %s\n", head->nome);
+    printf("Qnt: %d\n", head->qnt);
+    imprimirCartas(head->mao);
+    printf("\n");
 }
