@@ -29,8 +29,6 @@ void iniciar(Baralho **deck, Jogador **players) {
 
     *deck = criarDeck(ARQUIVO_BARALHO);
     //*players = listaJogadores(deck);
-    
-    //imprimirPlayers(*players);
     // criar jogadores aqui eba
 
     primeiraCarta(deck);
@@ -68,10 +66,11 @@ void imprimirCartas(Baralho *deck) {
 void imprimirPlayers(Jogador *head) {
     Jogador *tail = head->ant;
 
-    while (head != tail->prox) {
+    do {
         printf("Nome: %s\n", head->nome);
         printf("Qnt: %d\n", head->qnt);
         imprimirCartas(head->mao);
         printf("\n");
-    }
+        head = head->prox;
+    } while (head != tail->prox);
 }

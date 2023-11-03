@@ -12,7 +12,7 @@ Baralho* criarDeck(char* nome_arquivo) {
     f = fopen(nome_arquivo, "r");
 
     if (f == 0) {
-        printf("Erro: ao tentar abrir arquivo %s para leitura.....\n", nome_arquivo);
+        printf("\033[31mErro: ao tentar abrir arquivo %s para leitura.....\n\033[0m", nome_arquivo);
         exit(1);
     }
 
@@ -28,7 +28,7 @@ Baralho* criarDeck(char* nome_arquivo) {
     fclose(f);
 
     if (deck == NULL) {
-        printf("Erro: ao ler o baralho.....\n");
+        printf("\033[31mErro: ao ler o baralho.....\n\033[0m");
         exit(1);
     }   
 
@@ -37,6 +37,12 @@ Baralho* criarDeck(char* nome_arquivo) {
 
 void addBaralho(Baralho **head, int tipo, int simbulo) {
     Baralho *novaCarta = (Baralho*)malloc(sizeof(Baralho));
+
+    if (novaCarta == NULL) {
+        printf("\033[31mErro: ao alocar memória para nova carta.....\n\033[0m");
+        exit(1);
+    }
+
     novaCarta->tipo = tipo;
     novaCarta->simbulo = simbulo;
     novaCarta->prox = NULL;
@@ -50,8 +56,18 @@ void addBaralho(Baralho **head, int tipo, int simbulo) {
 }
 
 Baralho* comprarCarta(Baralho **head) {
+    if (head == NULL) {
+        printf("\033[31mErro: tentativa de comprar carta de baralho vazio.....\n\033[0m");
+        exit(1);
+    }
+
     Baralho *n = (*head)->prox;
     Baralho *card = (Baralho*)malloc(sizeof(Baralho));
+
+    if (card == NULL) {
+        printf("\033[31mErro: ao alocar memória para nova carta.....\n\033[0m");
+        exit(1);
+    }
 
     srand(time(0)); // mover para a main
     int nunCard = rand() % countBaralho(n);
@@ -64,7 +80,7 @@ Baralho* comprarCarta(Baralho **head) {
     }
 
     if (n == NULL) {
-        printf("Erro: ao comprar carta.....\n");
+        printf("\033[31mErro: tentativa de comprar carta fora dos limites do baralho.....\n\033[0m");
         exit(1);
     }
 
@@ -101,10 +117,17 @@ Baralho* criarMao(Baralho** head) {
     Baralho *mao = NULL;
 
     for (int i = 0; i < 7; i++) {
+        Baralho *novaCarta = comprarCarta(head);
+
+        if (novaCarta == NULL) {
+            printf("\033[31mErro: ao comprar carta.....\n\033[0m");
+            exit(1);
+        }
+
         if (mao == NULL) {
-            mao = comprarCarta(head);
+            mao = novaCarta;
+
         } else {
-            Baralho *novaCarta = comprarCarta(head);
             novaCarta->prox = mao;
             mao = novaCarta;
         }
@@ -116,15 +139,23 @@ Baralho* criarMao(Baralho** head) {
 void primeiraCarta(Baralho **head) {
     Baralho *primeiroCard = comprarCarta(head);
 
+    if (primeiroCard == NULL) {
+        printf("\033[31mErro: ao comprar carta.....\n\033[0m");
+        exit(1);
+    }
+
     primeiroCard->prox = *head;
     *head = primeiroCard;
 }
 
-void addMao(Baralho **head, Baralho *card) {
-    if (*head == NULL) {
-        *head = card;
+void addMao(Jogador **player, Baralho **deck) {
+    Baralho *mao = (*player)->mao;
+    Baralho *card = comprarCarta(deck);
+
+    if (mao == NULL) {
+        mao = card;
     } else {
-        card->prox = *head;
-        *head = card;
+        card->prox = mao;
+        mao = card;
     }
 }

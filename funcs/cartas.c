@@ -5,6 +5,7 @@
 #include "cartas.h"
 #include "structs.h"
 #include "iniciar.h"
+#include "ui.h"
 
 char* nomeCarta(Baralho *card) {
     char *strCard = (char*)malloc(31 * sizeof(char));
@@ -61,16 +62,16 @@ char* nomeCarta(Baralho *card) {
 
     switch(card->tipo) { // As cores aqui
         case 1:
-            strcat(strCard, "Verde");
+            strcat(strCard, GREEN "Verde" RESET);
             break;
         case 2:
-            strcat(strCard, "Azul");
+            strcat(strCard, BLUE "Azul" RESET);
             break;
         case 3:
-            strcat(strCard, "Amarelo");
+            strcat(strCard, YELLOW "Amarelo" RESET);
             break;
         case 4:
-            strcat(strCard, "Vermelho");
+            strcat(strCard, RED "Vermelho" RESET);
             break;
     }
 

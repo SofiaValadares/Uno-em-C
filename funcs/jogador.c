@@ -5,12 +5,13 @@
 #include "jogador.h"
 #include "baralho.h"
 #include "structs.h"
+#include "ui.h"
 
 Jogador* criarJogador(Baralho **head){
     Jogador *novoJogador = (Jogador*)malloc(sizeof(Jogador));
 
     char nomeJogador[51];
-    printf("Digite seu nome: ");
+    textoBold("Digite seu nome: ");
     scanf("%s", nomeJogador);
 
     strcpy(novoJogador->nome, nomeJogador);
@@ -25,7 +26,7 @@ Jogador* listaJogadores(Baralho **deck){
    Jogador *tail = NULL;
 
    int quantJogadores;
-   printf("Digite a quantidade de jogadores (mínimo de 2 e máximo de 10 jogadores): ");
+   textoBold("Digite a quantidade de jogadores (mínimo de 2 e máximo de 10 jogadores): ");
    scanf("%d", &quantJogadores);
 
    for(int i = 0; i<quantJogadores; i++){
