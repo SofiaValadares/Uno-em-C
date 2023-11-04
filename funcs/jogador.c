@@ -4,6 +4,8 @@
 
 #include "jogador.h"
 #include "baralho.h"
+#include "cartas.h"
+#include "iniciar.h"
 #include "structs.h"
 #include "ui.h"
 
