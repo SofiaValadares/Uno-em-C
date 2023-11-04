@@ -12,7 +12,7 @@ int main(void){
     Baralho *deck = NULL;
     Jogador *players = NULL;
     
-    iniciar(&deck, &players);
+    /*iniciar(&deck, &players);
 
     while (1) {
         turnoInterface(players, deck);
@@ -23,6 +23,6 @@ int main(void){
         }
 
         passarTurno(&players);
-    }
+    }*/
     return 0;
 }
