@@ -146,6 +146,10 @@ void primeiraCarta(Baralho **head) {
 
     primeiroCard->prox = *head;
     *head = primeiroCard;
+
+    if ((*head)->tipo == 0) {
+        primeiraCarta(head);
+    }
 }
 
 void addMao(Jogador **player, Baralho **deck) {
