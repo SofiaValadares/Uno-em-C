@@ -34,9 +34,12 @@ void listaJogadoresImprimir(Jogador *head) {
 }
 
 void imprimirCartas(Baralho *deck) {
+    int i = 1;
+
     while (deck != NULL){
-        printf("%s\n", nomeCarta(deck));
+        printf("%d - %s\n", i, nomeCarta(deck));
         deck = deck->prox;
+        i++;
     }
 }
 
@@ -57,6 +60,7 @@ void turnoInterface(Jogador *player, Baralho *deck) {
 
     printf("\n");
     imprimirCartas(player->mao);
+    printf("\n");
 }
 
 void textoBold(const char *texto) {

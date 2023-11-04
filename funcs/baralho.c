@@ -36,6 +36,19 @@ Baralho* criarDeck(char* nome_arquivo) {
 }
 
 void addBaralho(Baralho **head, int tipo, int simbulo) {
+    if (*head != NULL) {
+        if ((*head)->simbulo == 13) {
+            (*head)->tipo = 0;
+            (*head)->simbulo = 1;
+        }
+
+        if ((*head)->simbulo == 14) {
+            (*head)->tipo = 0;
+            (*head)->simbulo = 2;
+        } 
+    }
+    
+
     Baralho *novaCarta = (Baralho*)malloc(sizeof(Baralho));
 
     if (novaCarta == NULL) {
@@ -169,4 +182,36 @@ void addMao(Jogador **player, Baralho **deck) {
 
     novoCard->prox = (*player)->mao;
     (*player)->mao = novoCard;
+}
+
+Baralho *buscarCartaMao(Baralho *mao, int nun) {
+    for (int i = 1; i < nun; i++) {
+        mao = mao->prox;
+    }
+
+    return mao;
+}
+
+void removerMao(Jogador **player, Baralho *card) {
+    Baralho *mao = (*player)->mao;
+
+    (*player)->qnt--;
+
+    if (mao == card) {
+        mao = (mao)->prox;
+        free(card);
+        return;
+    }
+
+    while (mao->prox != card) {
+        mao = mao->prox;
+    }
+
+    if (card->prox == NULL) {
+        free(card);
+        mao->prox = NULL;
+    } else {
+        mao->prox = card->prox;
+        free(card);
+    }
 }

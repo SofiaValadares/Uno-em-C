@@ -4,6 +4,8 @@
 #include "structs.h"
 
 Jogador* criarJogador(Baralho **head);
-
+Jogador* listaJogadores(Baralho **deck);
+void jogadorTurno(Jogador **player, Baralho **deck);
+void passarTurno(Jogador **player);
 
 #endif //__JOGADOR_LIB__

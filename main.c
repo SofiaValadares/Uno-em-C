@@ -14,6 +14,15 @@ int main(void){
     
     iniciar(&deck, &players);
 
-    //turnoInterface(players, deck);
+    while (1) {
+        turnoInterface(players, deck);
+        jogadorTurno(&players, &deck);
+
+        if (players->mao == NULL) {
+            break;
+        }
+
+        passarTurno(&players);
+    }
     return 0;
 }

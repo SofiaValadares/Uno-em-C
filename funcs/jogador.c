@@ -38,3 +38,43 @@ Jogador* listaJogadores(Baralho **deck){
 
 
 }
+
+void jogadorTurno(Jogador **player, Baralho **deck) {
+    if (verifcarMao((*player)->mao, *deck)) {
+        textoBold("Digite o numero da posicao da carta que deseja jogar: ");
+
+        int nun;
+        scanf("%d", &nun);
+
+        Baralho *card = buscarCartaMao((*player)->mao, nun);
+
+        if (veficarCarta(card, *deck)) {
+            cartasEspeciais(&card);
+
+            addBaralho(deck, card->tipo, card->simbulo);
+            removerMao(player, card);
+        } else {
+            printf("Carta invalida\n");
+            jogadorTurno(player, deck);
+        }
+    } else {
+        addMao(player, deck);
+        textoBold("Infelizmente você não tem cartas que possam ser jogadas :(\n");
+        textoBold("Então você automaticamente compra uma carta!!\n\n");
+
+        textoBold("Carta comprada: ");
+        printf("%s\n", nomeCarta((*player)->mao));
+
+        limparBuff();
+        textoBold("Digite enter antes de passar para o proximo jogador....");
+        while (getchar() != '\n');
+    }
+}
+
+void passarTurno(Jogador **player) {
+    if (lerSentido()) {
+        *player = (*player)->prox;
+    } else {
+        *player = (*player)->ant;
+    }
+}

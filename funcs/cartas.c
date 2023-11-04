@@ -59,6 +59,12 @@ char* nomeCarta(Baralho *card) {
         case 12:
             strcpy(strCard, "+2 ");
             break;
+        case 13:
+            strcpy(strCard, "Coringa ");
+            break;
+        case 14:
+            strcpy(strCard, "Coringa +4 ");
+            break;
     }
 
     switch(card->tipo) { // As cores aqui
@@ -113,4 +119,48 @@ void inverter() {
     }
 
     fclose(f);
+}
+
+void coringa(Baralho **deck) {
+    printf("1 - " GREEN "Verde" RESET);
+    printf("2 - " BLUE "Azul" RESET);
+    printf("3 - " YELLOW "Amarelo" RESET);
+    printf("4 - " RED "Vermelho" RESET);
+
+    textoBold("Escolha uma cor: ");
+
+    int nun;
+    scanf("%d", &nun);
+
+    (*deck)->tipo = nun;
+    (*deck)->simbulo = 13;
+}
+
+void coringa4(Baralho **deck) {
+    printf("1 - " GREEN "Verde" RESET);
+    printf("2 - " BLUE "Azul" RESET);
+    printf("3 - " YELLOW "Amarelo" RESET);
+    printf("4 - " RED "Vermelho" RESET);
+
+    textoBold("Escolha uma cor: ");
+
+    int nun;
+    scanf("%d", &nun);
+
+    (*deck)->tipo = nun;
+    (*deck)->simbulo = 14;
+}
+
+void cartasEspeciais(Baralho **card) {
+    if ((*card)->simbulo == 10) {
+        inverter();
+    }
+
+    if ((*card)->tipo == 0) {
+        if((*card)->simbulo == 1) {
+            coringa(card);
+        } else if ((*card)->simbulo == 2) {
+            coringa4(card);
+        }
+    }
 }

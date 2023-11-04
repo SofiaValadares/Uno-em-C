@@ -28,7 +28,7 @@ void iniciar(Baralho **deck, Jogador **players) {
     criarArqSentido();
 
     *deck = criarDeck(ARQUIVO_BARALHO);
-    //*players = listaJogadores(deck);
+    *players = listaJogadores(deck);
     
     primeiraCarta(deck);
 }
