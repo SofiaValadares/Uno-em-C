@@ -198,7 +198,7 @@ void removerMao(Jogador **player, Baralho *card) {
     (*player)->qnt--;
 
     if (mao == card) {
-        mao = (mao)->prox;
+        (*player)->mao = (mao)->prox;
         free(card);
         return;
     }

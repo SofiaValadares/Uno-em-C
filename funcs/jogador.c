@@ -31,14 +31,11 @@ Jogador* listaJogadores(Baralho **deck){
    textoBold("Digite a quantidade de jogadores (mínimo de 2 e máximo de 10 jogadores): ");
    scanf("%d", &quantJogadores);
 
-   for(int i = 0; i<quantJogadores; i++){
+    for(int i = 0; i<quantJogadores; i++){
         if(head == NULL){
             head = criarJogador(deck);
         }
    }
-
-
-
 }
 
 void jogadorTurno(Jogador **player, Baralho **deck) {
@@ -51,30 +48,40 @@ void jogadorTurno(Jogador **player, Baralho **deck) {
         Baralho *card = buscarCartaMao((*player)->mao, nun);
 
         if (veficarCarta(card, *deck)) {
-            cartasEspeciais(&card);
-
             addBaralho(deck, card->tipo, card->simbulo);
             removerMao(player, card);
+
+            cartasEspeciais(player, deck);
         } else {
             printf("Carta invalida\n");
             jogadorTurno(player, deck);
         }
+
     } else {
         addMao(player, deck);
         textoBold("Infelizmente você não tem cartas que possam ser jogadas :(\n");
         textoBold("Então você automaticamente compra uma carta!!\n\n");
 
         textoBold("Carta comprada: ");
-        printf("%s\n", nomeCarta((*player)->mao));
+        printf("%s\n\n", nomeCarta((*player)->mao));
 
-        limparBuff();
+        //limparBuff();
         textoBold("Digite enter antes de passar para o proximo jogador....");
-        while (getchar() != '\n');
+        limparBuff();
+        printf("\n");
     }
 }
 
 void passarTurno(Jogador **player) {
     if (lerSentido()) {
+        *player = (*player)->prox;
+    } else {
+        *player = (*player)->ant;
+    }
+}
+
+void voltarTurno(Jogador **player) {
+    if (!lerSentido()) {
         *player = (*player)->prox;
     } else {
         *player = (*player)->ant;

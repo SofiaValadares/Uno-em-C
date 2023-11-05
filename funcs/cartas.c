@@ -6,6 +6,7 @@
 #include "baralho.h"
 #include "structs.h"
 #include "iniciar.h"
+#include "jogador.h"
 #include "ui.h"
 
 char* nomeCarta(Baralho *card) {
@@ -121,11 +122,36 @@ void inverter() {
     fclose(f);
 }
 
+void bloquear(Jogador **player, Baralho *deck) {
+    passarTurno(player);
+
+    turnoInterface(*player, deck);
+    textoBold("Você foi bloqueado. Digite enter antes de passar para o proximo player.....");
+    limparBuff();
+    getchar();
+}
+
+void comprar2(Jogador **player, Baralho **deck) {
+    passarTurno(player);
+
+    addMao(player, deck);
+    addMao(player, deck);
+
+    (*player)->qnt = countBaralho((*player)->mao);
+
+    turnoInterface(*player, *deck);
+
+    textoBold("Você comprou mais 2 cartas. Digite enter para continuar.....");
+    limparBuff();
+
+    voltarTurno(player);
+}
+
 void coringa(Baralho **deck) {
-    printf("1 - " GREEN "Verde" RESET);
-    printf("2 - " BLUE "Azul" RESET);
-    printf("3 - " YELLOW "Amarelo" RESET);
-    printf("4 - " RED "Vermelho" RESET);
+    printf("1 - " GREEN "Verde" RESET "\n");
+    printf("2 - " BLUE "Azul" RESET "\n");
+    printf("3 - " YELLOW "Amarelo" RESET "\n");
+    printf("4 - " RED "Vermelho" RESET "\n");
 
     textoBold("Escolha uma cor: ");
 
@@ -136,11 +162,11 @@ void coringa(Baralho **deck) {
     (*deck)->simbulo = 13;
 }
 
-void coringa4(Baralho **deck) {
-    printf("1 - " GREEN "Verde" RESET);
-    printf("2 - " BLUE "Azul" RESET);
-    printf("3 - " YELLOW "Amarelo" RESET);
-    printf("4 - " RED "Vermelho" RESET);
+void coringa4(Jogador **player, Baralho **deck) {
+    printf("1 - " GREEN "Verde" RESET "\n");
+    printf("2 - " BLUE "Azul" RESET "\n");
+    printf("3 - " YELLOW "Amarelo" RESET "\n");
+    printf("4 - " RED "Vermelho" RESET "\n");
 
     textoBold("Escolha uma cor: ");
 
@@ -149,18 +175,38 @@ void coringa4(Baralho **deck) {
 
     (*deck)->tipo = nun;
     (*deck)->simbulo = 14;
+
+    passarTurno(player);
+
+    addMao(player, deck);
+    addMao(player, deck);
+    addMao(player, deck);
+    addMao(player, deck);
+
+    (*player)->qnt = countBaralho((*player)->mao);
+
+    turnoInterface(*player, *deck);
+
+    textoBold("Você comprou mais 4 cartas. Digite enter para continuar.....");
+    limparBuff();
+
+    voltarTurno(player);
 }
 
-void cartasEspeciais(Baralho **card) {
-    if ((*card)->simbulo == 10) {
+void cartasEspeciais(Jogador **player, Baralho **deck) {
+    if ((*deck)->simbulo == 10) {
         inverter();
+    } else if ((*deck)->simbulo == 11) {
+        bloquear(player, *deck);
+    } else if ((*deck)->simbulo == 12) {
+        comprar2(player, deck);
     }
 
-    if ((*card)->tipo == 0) {
-        if((*card)->simbulo == 1) {
-            coringa(card);
-        } else if ((*card)->simbulo == 2) {
-            coringa4(card);
+    if ((*deck)->tipo == 0) {
+        if((*deck)->simbulo == 1) {
+            coringa(deck);
+        } else if ((*deck)->simbulo == 2) {
+            coringa4(player, deck);
         }
     }
 }

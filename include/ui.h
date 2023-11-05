@@ -16,6 +16,8 @@
 #define BLUE       "\033[34m"
 #define MAGENTA    "\033[35m"
 #define CYAN       "\033[36m"
+#define GRAY       "\033[90m"
+#define PURPLE     "\033[35m"
 #define WHITE      "\033[97m" 
 
 // Cores de fundo

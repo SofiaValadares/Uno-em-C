@@ -22,11 +22,12 @@ void listaJogadoresImprimir(Jogador *head) {
             printf(RED);
             printf("%s - UNO  ", head->nome);
             printf(RESET);
-            return;
+        } else {
+            printf("%s - %d  ", head->nome, head->qnt);
+            head = head->prox;
         }
 
-        printf("%s - %d  ", head->nome, head->qnt);
-        head = head->prox;
+        
 
     } while (head != tail->prox);
 
@@ -37,7 +38,10 @@ void imprimirCartas(Baralho *deck) {
     int i = 1;
 
     while (deck != NULL){
-        printf("%d - %s\n", i, nomeCarta(deck));
+        printf(GRAY);
+        printf("%d - ", i);
+        printf(RESET);
+        printf("%s\n", nomeCarta(deck));
         deck = deck->prox;
         i++;
     }
@@ -53,10 +57,12 @@ void turnoInterface(Jogador *player, Baralho *deck) {
     textoBold("Carta no centro: ");
     printf("%s\n\n", nomeCarta(deck));
 
-    limparBuff();
+    //limparBuff();
 
     printf("Vez do jogador %s, digite enter para visualizar sua mão.....", player->nome);
+    limparBuff();
     while (getchar() != '\n');
+    
 
     printf("\n");
     imprimirCartas(player->mao);
