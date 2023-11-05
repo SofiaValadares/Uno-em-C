@@ -24,10 +24,9 @@ void listaJogadoresImprimir(Jogador *head) {
             printf(RESET);
         } else {
             printf("%s - %d  ", head->nome, head->qnt);
-            head = head->prox;
         }
 
-        
+        head = head->prox;
 
     } while (head != tail->prox);
 
