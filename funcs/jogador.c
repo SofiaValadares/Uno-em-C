@@ -37,10 +37,19 @@ Jogador* listaJogadores(Baralho **deck){
     }
 
     for (int i = 0; i < quantJogadores; i++) {
+        Jogador *novo = criarJogador(deck);
         if (head == NULL) {
-            head = criarJogador(deck);
+            head = novo;
+            tail = novo;
+        } else {
+            tail->prox = novo;
+            novo->ant = tail;
+            tail = novo;
         }
     }
+
+    head->ant = tail;
+    tail->prox = head;
 
     return head;
 }

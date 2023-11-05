@@ -28,7 +28,7 @@
 #define BG_MAGENTA    "\033[45;37m"
 #define BG_CYAN       "\033[46;37m"
 
-#include "struct.h"
+#include "structs.h" 
 
 void textoUno();
 void centralizarTexto(const char *texto);
