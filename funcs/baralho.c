@@ -215,3 +215,9 @@ void removerMao(Jogador **player, Baralho *card) {
         free(card);
     }
 }
+
+void ordenarMao(Jogador **player) {
+    if ((*player)->mao == NULL || (*player)->mao->prox == NULL) {
+        return; 
+    }
+}

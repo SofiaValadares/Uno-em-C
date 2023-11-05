@@ -38,6 +38,7 @@ Jogador* listaJogadores(Baralho **deck){
 
     for (int i = 0; i < quantJogadores; i++) {
         Jogador *novo = criarJogador(deck);
+        //ordenarMao(&novo);
         if (head == NULL) {
             head = novo;
             tail = novo;

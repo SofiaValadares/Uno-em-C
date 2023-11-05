@@ -12,5 +12,6 @@ void primeiraCarta(Baralho **head);
 void addMao(Jogador **player, Baralho **deck);
 Baralho *buscarCartaMao(Baralho *mao, int nun);
 void removerMao(Jogador **player, Baralho *card);
+void ordenarMao(Jogador **player);
 
 #endif //__BARALHO_LIB__

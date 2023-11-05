@@ -136,18 +136,13 @@ void comprar2(Jogador **player, Baralho **deck) {
 
     turnoInterface(*player, *deck);
 
-    addMao(player, deck);
-    addMao(player, deck);
-
     (*player)->qnt = countBaralho((*player)->mao);
 
     textoBold("Você comprou mais 2 cartas.\n");
 
-    Baralho *n = (*player)->mao;
-
-    for (int i = 0; i < 2; i ++) {
-        printf("%s\n", nomeCarta(n));
-        n = n->prox;
+    for (int i = 0; i < 4; i ++) {
+        addMao(player, deck);
+        printf("%s\n", nomeCarta((*player)->mao));
     }
 
     textoBold("Digite enter para continuar.....");
@@ -189,21 +184,15 @@ void coringa4(Jogador **player, Baralho **deck) {
 
     turnoInterface(*player, *deck); 
 
-    addMao(player, deck);
-    addMao(player, deck);
-    addMao(player, deck);
-    addMao(player, deck);
-
+    
     (*player)->qnt = countBaralho((*player)->mao);
 
 
     textoBold("Você comprou mais 4 cartas.\n");
 
-    Baralho *n = (*player)->mao;
-
     for (int i = 0; i < 4; i ++) {
-        printf("%s\n", nomeCarta(n));
-        n = n->prox;
+        addMao(player, deck);
+        printf("%s\n", nomeCarta((*player)->mao));
     }
 
     textoBold("Digite enter para continuar.....");
