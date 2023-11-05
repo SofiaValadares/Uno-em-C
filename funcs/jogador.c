@@ -24,18 +24,25 @@ Jogador* criarJogador(Baralho **head){
 }
 
 Jogador* listaJogadores(Baralho **deck){
-   Jogador *head = NULL;
-   Jogador *tail = NULL;
+    Jogador *head = NULL;
+    Jogador *tail = NULL;
 
-   int quantJogadores;
-   textoBold("Digite a quantidade de jogadores (mínimo de 2 e máximo de 10 jogadores): ");
-   scanf("%d", &quantJogadores);
+    int quantJogadores;
+    textoBold("Digite a quantidade de jogadores (mínimo de 2 e máximo de 10 jogadores): ");
+    scanf("%d", &quantJogadores);
 
-    for(int i = 0; i<quantJogadores; i++){
-        if(head == NULL){
+    while (quantJogadores < 2 || quantJogadores > 10) {
+        printf(RED "Quantidade invalida!!! Digite uma quantidade ente 2 e 10: " RESET);
+        scanf("%d", &quantJogadores);
+    }
+
+    for (int i = 0; i < quantJogadores; i++) {
+        if (head == NULL) {
             head = criarJogador(deck);
         }
-   }
+    }
+
+    return head;
 }
 
 void jogadorTurno(Jogador **player, Baralho **deck) {
@@ -44,6 +51,11 @@ void jogadorTurno(Jogador **player, Baralho **deck) {
 
         int nun;
         scanf("%d", &nun);
+
+        while (nun < 1 || nun > (*player)->qnt) {
+            printf(RED "Numero invalido!!! Digite um dos numeros cizas a esquerda: " RESET);
+            scanf("%d", &nun);
+        }
 
         Baralho *card = buscarCartaMao((*player)->mao, nun);
 
