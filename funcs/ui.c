@@ -68,6 +68,13 @@ void turnoInterface(Jogador *player, Baralho *deck) {
     printf("\n");
 }
 
+void interfaceFim(Jogador *player) {
+    limparTerminal();
+    printf(HIDDEN BG_RED "    UNO         " BG_YELLOW "    UNO         " BG_GREEN "    UNO         " BG_BLUE "     UNO" RESET BG_BLUE BOLD "U N O" HIDDEN "UNO      " BG_GREEN "    UNO         " BG_YELLOW "    UNO         " BG_RED "    UNO         " RESET "\n\n");
+
+    listaJogadoresImprimir(player);
+}
+
 void textoBold(const char *texto) {
     printf(BOLD);
     printf("%s", texto);

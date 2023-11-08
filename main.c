@@ -18,11 +18,15 @@ int main(void){
         turnoInterface(players, deck);
         jogadorTurno(&players, &deck);
 
-        if (players->mao == NULL) {
+        if (players->mao == NULL || players->ant->mao == NULL || players->prox->mao == NULL) {
             break;
         }
 
         passarTurno(&players);
     }
+
+    //podio(&players);
+    interfaceFim(players);
+
     return 0;
 }

@@ -35,6 +35,7 @@ void centralizarTexto(const char *texto);
 void listaJogadoresImprimir(Jogador *head);
 void imprimirCartas(Baralho *deck);
 void turnoInterface(Jogador *player, Baralho *deck);
+void interfaceFim(Jogador *player);
 void textoBold(const char *texto);
 void imprimirComQuebrasDeLinha(const char *texto);
 void limparTerminal();
