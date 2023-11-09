@@ -50,7 +50,7 @@ void imprimirCartas(Baralho *deck) {
 void turnoInterface(Jogador *player, Baralho *deck) {
     limparTerminal();
 
-    textoBold("JOCADORES:\n");
+    textoBold("JOGADORES:\n");
     listaJogadoresImprimir(player);
     printf("\n\n");
 
