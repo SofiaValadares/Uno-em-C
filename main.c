@@ -25,7 +25,7 @@ int main(void){
         passarTurno(&players);
     }
 
-    //podio(&players);
+    podio(&players);
     interfaceFim(players);
 
     return 0;

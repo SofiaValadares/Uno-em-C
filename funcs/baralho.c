@@ -52,7 +52,7 @@ void addBaralho(Baralho **head, int tipo, int simbulo) {
     Baralho *novaCarta = (Baralho*)malloc(sizeof(Baralho));
 
     if (novaCarta == NULL) {
-        printf("\033[31mErro: ao alocar memória para nova carta.....\n\033[0m");
+        printf("\033[31mErro: ao alocar memoria para nova carta.....\n\033[0m");
         exit(1);
     }
 
@@ -78,7 +78,7 @@ Baralho* comprarCarta(Baralho **head) {
     Baralho *card = (Baralho*)malloc(sizeof(Baralho));
 
     if (card == NULL) {
-        printf("\033[31mErro: ao alocar memória para nova carta.....\n\033[0m");
+        printf("\033[31mErro: ao alocar memoria para nova carta.....\n\033[0m");
         exit(1);
     }
 

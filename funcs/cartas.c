@@ -126,7 +126,7 @@ void bloquear(Jogador **player, Baralho *deck) {
     passarTurno(player);
 
     turnoInterface(*player, deck);
-    textoBold("Você foi bloqueado. Digite enter antes de passar para o proximo player.....");
+    textoBold("Voce foi bloqueado. Digite enter antes de passar para o proximo player.....");
     limparBuff();
     getchar();
 }
@@ -138,7 +138,7 @@ void comprar2(Jogador **player, Baralho **deck) {
 
     (*player)->qnt = countBaralho((*player)->mao);
 
-    textoBold("Você comprou mais 2 cartas.\n");
+    textoBold("Voce comprou mais 2 cartas.\n");
 
     for (int i = 0; i < 4; i ++) {
         addMao(player, deck);
@@ -188,7 +188,7 @@ void coringa4(Jogador **player, Baralho **deck) {
     (*player)->qnt = countBaralho((*player)->mao);
 
 
-    textoBold("Você comprou mais 4 cartas.\n");
+    textoBold("Voce comprou mais 4 cartas.\n");
 
     for (int i = 0; i < 4; i ++) {
         addMao(player, deck);

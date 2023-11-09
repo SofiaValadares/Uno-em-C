@@ -28,7 +28,7 @@ Jogador* listaJogadores(Baralho **deck){
     Jogador *tail = NULL;
 
     int quantJogadores;
-    textoBold("Digite a quantidade de jogadores (mínimo de 2 e máximo de 10 jogadores): ");
+    textoBold("Digite a quantidade de jogadores (minimo de 2 e maximo de 10 jogadores): ");
     scanf("%d", &quantJogadores);
 
     while (quantJogadores < 2 || quantJogadores > 10) {
@@ -81,8 +81,8 @@ void jogadorTurno(Jogador **player, Baralho **deck) {
 
     } else {
         addMao(player, deck);
-        textoBold("Infelizmente você não tem cartas que possam ser jogadas :(\n");
-        textoBold("Então você automaticamente compra uma carta!!\n\n");
+        textoBold("Infelizmente voce nao tem cartas que possam ser jogadas :(\n");
+        textoBold("Entao voce automaticamente compra uma carta!!\n\n");
 
         textoBold("Carta comprada: ");
         printf("%s\n\n", nomeCarta((*player)->mao));
@@ -132,7 +132,7 @@ void podio(Jogador **player) {
 
             temp = temp->prox;
 
-        } while (temp != tail->ant);
+        } while (temp != tail->prox);
 
         if (head!= menorQuant) {
             // funçaõ trocarJogadoresRank

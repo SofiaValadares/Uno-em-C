@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "cartas.h"
+#include "jogador.h"
 #include "structs.h"
 #include "ui.h"
 
@@ -10,7 +11,7 @@ void textoUno() {
     limparTerminal();
     printf(HIDDEN BG_RED "    UNO         " BG_YELLOW "    UNO         " BG_GREEN "    UNO         " BG_BLUE "     UNO" RESET BG_BLUE BOLD "U N O" HIDDEN "UNO      " BG_GREEN "    UNO         " BG_YELLOW "    UNO         " BG_RED "    UNO         " RESET "\n\n");
    
-    centralizarTexto(ITALIC UNDERLINE "Onde amizades são testadas e cartas são arremessadas!" RESET);
+    centralizarTexto(ITALIC UNDERLINE "Onde amizades sao testadas e cartas sao arremessadas!" RESET);
     printf("\n\n\n\n");
 }
 
@@ -58,7 +59,7 @@ void turnoInterface(Jogador *player, Baralho *deck) {
 
     //limparBuff();
 
-    printf("Vez do jogador %s, digite enter para visualizar sua mão.....", player->nome);
+    printf("Vez do jogador %s, digite enter para visualizar sua mao.....", player->nome);
     limparBuff();
     while (getchar() != '\n');
     
@@ -71,8 +72,28 @@ void turnoInterface(Jogador *player, Baralho *deck) {
 void interfaceFim(Jogador *player) {
     limparTerminal();
     printf(HIDDEN BG_RED "    UNO         " BG_YELLOW "    UNO         " BG_GREEN "    UNO         " BG_BLUE "     UNO" RESET BG_BLUE BOLD "U N O" HIDDEN "UNO      " BG_GREEN "    UNO         " BG_YELLOW "    UNO         " BG_RED "    UNO         " RESET "\n\n");
+    
+    centralizarTexto(BOLD "       ___________      \n" RESET);
+    centralizarTexto(BOLD "      '._==_==_=_.'     \n" RESET);
+    centralizarTexto(BOLD "      .-\\:      /-.    \n" RESET);
+    centralizarTexto(BOLD "     | (|:.     |) |    \n" RESET);
+    centralizarTexto(BOLD "      '-|:.     |-'     \n" RESET);
+    centralizarTexto(BOLD "        \\::.    /      \n" RESET);
+    centralizarTexto(BOLD "         '::. .'        \n" RESET);
+    centralizarTexto(BOLD "           ) (          \n" RESET);
+    centralizarTexto(BOLD "         _.' '._        \n" RESET);
+    centralizarTexto(BOLD "        '-------'       \n" RESET);
+    printf("\n\n\n");
+    
+    for(int i = 1; i < 4; i++) {
+        printf(BOLD);
+        printf("%d lugar - ", i); 
+        printf(RESET);
+        printf("%s\n", player->nome);
 
-    listaJogadoresImprimir(player);
+        passarTurno(&player);
+    }
+    
 }
 
 void textoBold(const char *texto) {
