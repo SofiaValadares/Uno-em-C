@@ -53,23 +53,4 @@ int lerSentido() {
 }
 
 
-// Testes eba
 
-void imprimirPlayers(Jogador *head) {
-    Jogador *tail = head->ant;
-
-    do {
-        printf("Nome: %s\n", head->nome);
-        printf("Qnt: %d\n", head->qnt);
-        imprimirCartas(head->mao);
-        printf("\n");
-        head = head->prox;
-    } while (head != tail->prox);
-}
-
-void imprimirJogador(Jogador *head) {
-    printf("Nome: %s\n", head->nome);
-    printf("Qnt: %d\n", head->qnt);
-    imprimirCartas(head->mao);
-    printf("\n");
-}

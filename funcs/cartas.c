@@ -144,6 +144,9 @@ void comprar2(Jogador **player, Baralho **deck) {
         addMao(player, deck);
         printf("%s\n", nomeCarta((*player)->mao));
     }
+    
+    ordenarMao(player);
+
 
     textoBold("Digite enter para continuar.....");
     limparBuff();
@@ -194,6 +197,9 @@ void coringa4(Jogador **player, Baralho **deck) {
         addMao(player, deck);
         printf("%s\n", nomeCarta((*player)->mao));
     }
+
+    ordenarMao(player);
+
 
     textoBold("Digite enter para continuar.....");
     limparBuff();

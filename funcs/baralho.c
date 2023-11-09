@@ -215,9 +215,46 @@ void removerMao(Jogador **player, Baralho *card) {
         free(card);
     }
 }
-
+//buble
 void ordenarMao(Jogador **player) {
     if ((*player)->mao == NULL || (*player)->mao->prox == NULL) {
-        return; 
-    }
+        return;
+    } 
+
+    int troca;
+    Baralho *ordenado = NULL;
+
+    do {
+        troca = 0;
+        Baralho *atual = (*player)->mao;
+        Baralho *anterior = NULL;
+
+        while (atual != NULL && atual->prox != ordenado){
+            Baralho *proximo = atual->prox;
+
+            if (atual->tipo > proximo->tipo || (atual->tipo == proximo->tipo && atual->simbulo > proximo->simbulo)) {
+                if(anterior != NULL){
+                    anterior->prox = proximo;
+                } else {
+                    (*player)->mao = proximo;
+                }
+
+                atual->prox = proximo->prox;
+                proximo->prox = atual;
+
+                troca = 1;
+
+                anterior = proximo;                
+
+            } else {
+                anterior = atual;
+                atual = atual->prox;
+            }
+        }
+
+        ordenado = atual; //juntando os ordenados no fim da lista;
+
+    } while (troca); //infinito
+
 }
+

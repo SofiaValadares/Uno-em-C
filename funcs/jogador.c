@@ -38,7 +38,7 @@ Jogador* listaJogadores(Baralho **deck){
 
     for (int i = 0; i < quantJogadores; i++) {
         Jogador *novo = criarJogador(deck);
-        //ordenarMao(&novo);
+        ordenarMao(&novo);
         if (head == NULL) {
             head = novo;
             tail = novo;
@@ -87,10 +87,12 @@ void jogadorTurno(Jogador **player, Baralho **deck) {
         textoBold("Carta comprada: ");
         printf("%s\n\n", nomeCarta((*player)->mao));
 
-        //limparBuff();
+        ordenarMao(player);
+
         textoBold("Digite enter antes de passar para o proximo jogador....");
         limparBuff();
         printf("\n");
+
     }
 }
 
