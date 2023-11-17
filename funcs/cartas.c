@@ -123,6 +123,10 @@ void inverter() {
 }
 
 void bloquear(Jogador **player, Baralho *deck) {
+    if ((*player)->mao == NULL) {
+        return;
+    }
+
     passarTurno(player);
 
     turnoInterface(*player, deck);

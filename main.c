@@ -18,7 +18,7 @@ int main(void){
         turnoInterface(players, deck);
         jogadorTurno(&players, &deck);
 
-        if (players->mao == NULL || players->ant->mao == NULL || players->prox->mao == NULL) {
+        if (players->mao == NULL) {
             break;
         }
 
