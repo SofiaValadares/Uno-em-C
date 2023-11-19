@@ -258,3 +258,20 @@ void ordenarMao(Jogador **player) {
 
 }
 
+void limparBaralho(Baralho** head) {
+    if (*head == NULL) {
+        return;
+    }
+    
+    Baralho *atual = *head;
+    Baralho *proximo;
+
+    while (atual != NULL) {
+        proximo = atual->prox;
+        free(atual);
+        atual = proximo;
+    }
+
+    *head = NULL;
+}
+

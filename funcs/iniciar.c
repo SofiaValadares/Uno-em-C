@@ -52,5 +52,19 @@ int lerSentido() {
     return sent;
 }
 
+void fim(Baralho **deck, Jogador **players) {
+    limparBaralho(deck);
+    limparJogadores(players);
+
+    if (*deck == NULL) {
+        printf("Deck liberado\n");
+    }
+
+
+    if (*players == NULL) {
+        printf("Jogadores liberados\n");
+    }
+}
+
 
 

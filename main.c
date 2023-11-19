@@ -27,6 +27,7 @@ int main(void){
 
     podio(&players);
     interfaceFim(players);
+    fim(&deck, &players);
 
     return 0;
 }

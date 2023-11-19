@@ -10,5 +10,6 @@ void passarTurno(Jogador **player);
 void voltarTurno(Jogador **player);
 void podio(Jogador **player);
 void trocarJogadoresRank(Jogador **atual, Jogador **menor);
+void limparJogadores(Jogador **players);
 
 #endif  

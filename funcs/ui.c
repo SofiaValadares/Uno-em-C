@@ -59,7 +59,7 @@ void turnoInterface(Jogador *player, Baralho *deck) {
 
     //limparBuff();
 
-    printf("Vez do jogador %s, digite enter para visualizar sua mao.....", player->nome);
+    printf("Vez do jogador %s, digite enter para visualizar sua mao.....\n", player->nome);
     limparBuff();
     while (getchar() != '\n');
     
@@ -85,6 +85,8 @@ void interfaceFim(Jogador *player) {
     centralizarTexto(BOLD "        '-------'       \n" RESET);
     printf("\n\n\n");
     
+    Jogador *head = player;
+
     for(int i = 1; i < 4; i++) {
         printf(BOLD);
         printf("%d lugar - ", i); 
@@ -92,6 +94,10 @@ void interfaceFim(Jogador *player) {
         printf("%s\n", player->nome);
 
         passarTurno(&player);
+
+        if (player == head) {
+            break;
+        }
     }
     
 }

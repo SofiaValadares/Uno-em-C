@@ -165,3 +165,17 @@ void trocarJogadoresRank(Jogador **atual, Jogador **menor) {//atual é a head "d
 
     *atual = *menor;
 }
+
+void limparJogadores(Jogador **players) {
+    Jogador *atual = *players;
+    Jogador *proximo;
+
+    while (atual != NULL) {
+        proximo = atual->prox;
+        limparBaralho(&(atual->mao));
+        free(atual);
+        atual = proximo;
+    }
+
+    *players = NULL;
+}
