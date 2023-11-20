@@ -3,17 +3,17 @@ O Uno é um jogo de cartas divertido e fácil de jogar, para toda e qualquer pes
 
 Número de jogadores: 2 a 10 jogadores.
 
-###Objetivo:
+### Objetivo:
 
 Ser o primeiro jogador a se livrar de todas as cartas
 
-###Setup:  
+### Setup:  
 
 1. Embaralhe as cartas do Uno e distribua 7 cartas para cada jogador. As cartas restantes formam o "monte" e a primeira carta é virada para cima ao lado do monte, formando o início da pilha de descarte.
 
 2. A pessoa à esquerda do distribuidor começa o jogo.
 
-###Regras básicas:
+### Regras básicas:
 
 3. O jogo é jogado em sentido horário.
 
