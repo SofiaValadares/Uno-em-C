@@ -54,15 +54,19 @@ int lerSentido() {
 
 void fim(Baralho **deck, Jogador **players) {
     limparBaralho(deck);
-    limparJogadores(players);
 
     if (*deck == NULL) {
         printf("Deck liberado\n");
     }
 
+    limparJogadores(players);
 
     if (*players == NULL) {
         printf("Jogadores liberados\n");
+    }
+
+    if (remove(ARQUIVO_SENTIDO) == 0) {
+        printf("Arquivo sentido deletado com sucesso\n");
     }
 }
 

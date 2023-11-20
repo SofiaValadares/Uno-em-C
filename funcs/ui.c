@@ -85,20 +85,10 @@ void interfaceFim(Jogador *player) {
     centralizarTexto(BOLD "        '-------'       \n" RESET);
     printf("\n\n\n");
     
-    Jogador *head = player;
-
-    for(int i = 1; i < 4; i++) {
-        printf(BOLD);
-        printf("%d lugar - ", i); 
-        printf(RESET);
-        printf("%s\n", player->nome);
-
-        passarTurno(&player);
-
-        if (player == head) {
-            break;
-        }
-    }
+    printf(BOLD);
+    printf("Parabens para o vencedor jogador "); 
+    printf(RESET);
+    printf("%s\n", player->nome);
     
 }
 

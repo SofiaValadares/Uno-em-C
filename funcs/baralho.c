@@ -266,10 +266,14 @@ void limparBaralho(Baralho** head) {
     Baralho *atual = *head;
     Baralho *proximo;
 
-    while (atual != NULL) {
+    while (atual->prox != NULL) {
         proximo = atual->prox;
         free(atual);
         atual = proximo;
+    }
+
+    if (atual != NULL) {
+       free(atual); 
     }
 
     *head = NULL;

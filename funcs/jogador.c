@@ -111,71 +111,21 @@ void voltarTurno(Jogador **player) {
         *player = (*player)->ant;
     }
 }
-//selection sort
-void podio(Jogador **player) {
-    Jogador *head = *player;
-    //o primeiro player ja ta ordenado pq ele ganhou, e se só tiver dois players a lista já vai estar ordenada pq o primeiro ja ganhou.
-    Jogador *tail = head->ant;
-
-    if (head->prox == tail) {
-        return;//caso só hajam 2 jogadores a lista já ta ordenada;
-    }
-
-    head = head->prox;
-    
-    for (int i = 0; i < 2; i++) {
-        Jogador *menorQuant = head;
-        Jogador *temp = head->prox;
-
-        do {
-            if (temp->qnt < menorQuant->qnt) {
-                menorQuant = temp;
-            }
-
-            temp = temp->prox;
-
-        } while (temp != tail->prox);
-
-        if (head!= menorQuant) {
-            // funçaõ trocarJogadoresRank
-            trocarJogadoresRank(&head, &menorQuant);
-        }
-
-        head = head->prox; 
-    }
-
-}
-
-void trocarJogadoresRank(Jogador **atual, Jogador **menor) {//atual é a head "do momento". O que estiver entre o tail e a head(que vai de tail->ant até head->ant) já está ordenado
-    Jogador *antAtual = (*atual)->ant;
-    Jogador *proxAtual = (*atual)->prox;
-
-    Jogador *antMenor = (*menor)->ant;
-    Jogador *proxMenor = (*menor)->prox;
-
-    antMenor->prox = *atual;
-    (*atual)->ant = antMenor;
-    proxMenor->ant = *atual;
-    (*atual)->prox = proxMenor;
-
-    antAtual->prox = *menor;
-    (*menor)->ant = antAtual;
-    proxAtual->ant = *menor;
-    (*menor)->prox = proxAtual;
-
-    *atual = *menor;
-}
 
 void limparJogadores(Jogador **players) {
+    if (*players == NULL) {
+        return;
+    }
+
     Jogador *atual = *players;
+    atual->ant->prox = NULL;
     Jogador *proximo;
 
     while (atual != NULL) {
         proximo = atual->prox;
-        limparBaralho(&(atual->mao));
         free(atual);
         atual = proximo;
     }
-
+    
     *players = NULL;
 }
