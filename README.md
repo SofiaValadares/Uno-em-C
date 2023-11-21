@@ -38,11 +38,6 @@ Obs: Nesta versão do UNO, não há a sobreposição de cartas +4 ou +2 para “
 
 <br></br>
 
-# ⚙️ Funcionalidades
-
-- <b>Função:</b> Escrever funcoes
-<br></br>
-
 # 💾 Tecnologias Utilizadas
 
 - <b>Ferramentas:</b> Linguagem C
