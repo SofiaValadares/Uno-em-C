@@ -1,8 +1,9 @@
+# UNO
 Esse foi um projeto desenvolvido para a cadeira de Algoritimos e Estrutura de Dados na graduação CESAR School, lencionada por Natacha Targino
 
-# UNO
-O Uno é um jogo de cartas divertido e fácil de jogar, para toda e qualquer pessoa que goste de passatempos descontraídos e desafiadores para se divertir com seus amigos. Aqui estão as regras básicas para jogar Uno:
+O Uno é um jogo de cartas divertido e fácil de jogar, para toda e qualquer pessoa que goste de passatempos descontraídos e desafiadores para se divertir com seus amigos.
 
+# REGRAS
 Número de jogadores: 2 a 10 jogadores.
 
 ### Objetivo:
