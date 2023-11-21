@@ -1,3 +1,5 @@
+Esse foi um projeto desenvolvido para a cadeira de Algoritimos e Estrutura de Dados na graduação CESAR School, lencionada por Natacha Targino
+
 # UNO
 O Uno é um jogo de cartas divertido e fácil de jogar, para toda e qualquer pessoa que goste de passatempos descontraídos e desafiadores para se divertir com seus amigos. Aqui estão as regras básicas para jogar Uno:
 
@@ -20,12 +22,12 @@ Ser o primeiro jogador a se livrar de todas as cartas
 4. O jogador pode jogar uma carta que combine em número ou cor com a carta do topo da pilha de descarte. Por exemplo, se a carta no topo da pilha de descarte for um "7 azul", o jogador pode jogar qualquer carta azul ,independentemente do símbolo, ou qualquer carta com o número 7, independentemente da cor.
 
 5. Além das cartas numeradas, existem cartas de ação especiais no Uno. Estas são:
-   Carta Pular (Skip): Faz o próximo jogador perder a vez.
+   Carta Bloqueio (Skip): Faz o próximo jogador perder a vez.
    Carta Inverter (Reverse): Inverte a ordem do jogo.
    Carta +2: O próximo jogador deve comprar duas cartas e perder a vez. *Ler a Observação dentro ainda do tópico 5.
-   Carta Coringa (Wild): Esta carta pode ser jogada a qualquer momento e permite que o jogador escolha a próxima     cor a ser jogada.
-   Carta Coringa +4 (Wild +4):  Esta carta pode ser jogada a qualquer momento e permite que o jogador escolha a        próxima cor a ser jogada. Fora isso, o próximo jogador é obrigado a comprar mais 4 cartas do deck. *Ler a           observação dentro ainda do tópico 5.
-   Carta Bloqueio: Esta carta faz com que o próximo jogador (jogador imediatamente posterior ao que jogou a carta      bloqueio) perca sua vez.
+   Carta Coringa (Wild): Esta carta pode ser jogada a qualquer momento e permite que o jogador escolha a próxima cor a ser jogada.
+   Carta Coringa +4 (Wild +4):  Esta carta pode ser jogada a qualquer momento e permite que o jogador escolha a próxima cor a ser jogada. Fora isso, o próximo jogador é obrigado a comprar mais 4 cartas do deck. *Ler a observação dentro ainda do tópico 5.
+
 
 Obs: Nesta versão do UNO, não há a sobreposição de cartas +4 ou +2 para “livrar” o próximo jogador de comprar as cartas e apenas acumulá-las para o seu posterior. 
 
